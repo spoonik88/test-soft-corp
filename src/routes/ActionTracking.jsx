@@ -1,14 +1,7 @@
-import React from 'react';
+import React from "react";
 
-
-const ActionTracking = props => {
-    return (
-        <div>
-            
-        </div>
-    );
+const ActionTracking = (props) => {
+  return <div></div>;
 };
-
-
 
 export default ActionTracking;

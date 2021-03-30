@@ -8,8 +8,6 @@ import SchedulePlanningImg from "../../../images/SchedulePlanning.svg";
 import AdministrationImg from "../../../images/Administration.svg";
 import ActionTrackingImg from "../../../images/ActionTracking.svg";
 
-
-
 const MENU = [
   {
     title: "My Dashboard",
@@ -53,20 +51,19 @@ const MenuWrapper = styled.nav`
     height: 40px;
     width: 199px;
     position: relative;
-    
+
     box-sizing: border-box;
     display: flex;
     align-items: center;
     padding-left: 21%;
     cursor: pointer;
-    margin-bottom: 2px;    
+    margin-bottom: 2px;
   }
   a:hover {
     background: #ffffff;
     border-radius: 8px;
     position: relative;
     box-sizing: border-box;
-    
   }
   span {
     font-style: normal;
@@ -77,9 +74,7 @@ const MenuWrapper = styled.nav`
     align-items: center;
     color: #0c1427;
     position: reletive;
-    
   }
-  
 `;
 const IconImg = styled.img`
   position: absolute;
@@ -89,22 +84,21 @@ const IconImg = styled.img`
   top: calc(50% - 10px);
 `;
 
-
-
-
 const Menu = () => {
-  
-
   return (
     <MenuWrapper>
       <div>
         {MENU.map(({ title, to, icon }, index) => (
-          <NavLink activeStyle={{
-            background: "#ffffff",
-            borderRadius: "8px"           
-          }} to={to} key={index}>
+          <NavLink
+            activeStyle={{
+              background: "#ffffff",
+              borderRadius: "8px",
+            }}
+            to={to}
+            key={index}
+          >
             <IconImg src={icon} alt="icon" />
-            <span >{title}</span>
+            <span>{title}</span>
           </NavLink>
         ))}
       </div>

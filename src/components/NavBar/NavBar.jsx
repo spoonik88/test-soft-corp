@@ -10,7 +10,9 @@ const NavBarWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: column;
-  
+  @media${(props) => props.theme.media.tablet} {
+    display: none;
+  }
 `;
 
 const NavBar = () => {

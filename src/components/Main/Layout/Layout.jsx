@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import ListUser from "./ListUser/ListUser";
+import { getUserList } from "../../../utils/mockUserList";
+import ListUser from "./ListUser/ListUser"; //TODO: rename component and file to UserRow
 
 const TABLE_HEADER = [
   {
@@ -37,62 +38,63 @@ const TableHead = styled.div`
   text-transform: uppercase;
   color: #8697a8;
   text-align: left;
-  &:nth-child(1){
-    flex: 0 0 20%;
-  }  
-  &:nth-child(2){
-    flex: 0 0 15%;
-  }
-  &:nth-child(3){
+  &:nth-child(1) {
     flex: 0 0 20%;
   }
-  &:nth-child(4){
+  &:nth-child(2) {
     flex: 0 0 15%;
   }
-  &:nth-child(5){
+  &:nth-child(3) {
+    flex: 0 0 20%;
+  }
+  &:nth-child(4) {
     flex: 0 0 15%;
   }
-  &:nth-child(6){
+  &:nth-child(5) {
     flex: 0 0 15%;
   }
-  &:nth-child(7){
+  &:nth-child(6) {
+    flex: 0 0 15%;
+  }
+  &:nth-child(7) {
     flex: 0 0 10%;
   }
 `;
 
 const TableRow = styled.div`
-    flex: 0 0 100%;  
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    padding: 0 20px;
-    box-sizing:border-box;
-    margin-bottom: 8px;
-   
-
-}
-
-
+  flex: 0 0 100%;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
 `;
-const Layout = () => {
+
+const TableInner = styled.div`
+  width: 100%;
+  @media${(props) => props.theme.media.tablet} {
+    background: #ffffff;
+    border: 1px solid rgba(12, 20, 39, 0.05);
+    box-sizing: border-box;
+    box-shadow: 0px 2px 2px rgba(12, 20, 39, 0.1);
+    border-radius: 20px;
+  }
+`;
+const Layout = () => { //TODO rename component to DashBoard
+  let users = getUserList(12);
   return (
     <TableWrapper>
-      <TableRow>
-        {TABLE_HEADER.map(({ title }, index) => (
-          <TableHead key={index}>{title}</TableHead>
+      <TableInner>
+        <TableRow>
+          {TABLE_HEADER.map(({ title }, index) => (
+            <TableHead key={index}>{title}</TableHead>
+          ))}
+        </TableRow>
+        {users.map((user, index) => (
+          <ListUser key={index} user={user} />
         ))}
-      </TableRow>
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />
-      <ListUser />      
+      </TableInner>
     </TableWrapper>
   );
 };

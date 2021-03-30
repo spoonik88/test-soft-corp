@@ -4,6 +4,9 @@ import Select from "react-select";
 
 const SelectWrapper = styled.div`
   height: 44px;
+  @media${(props) => props.theme.media.tablet} {
+    margin-bottom: 15px;
+  }
 `;
 
 const SelectItem = styled.select`
@@ -26,19 +29,19 @@ const SelectItem = styled.select`
     border: 1px solid #dedfe2;
     box-sizing: border-box;
   }
-  option {
-    width: 59px;
-    height: 17px;
-    background: #ffffff;
-    border: 1px solid rgba(12, 20, 39, 0.05);
-    box-sizing: border-box;
-    box-shadow: 0px 2px 2px rgba(12, 20, 39, 0.1);
-    border-radius: 8px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-  }
+`;
+const StyledOption = styled.option`
+  width: 59px;
+  height: 17px;
+  background: ${(props) => (props.color ? props.color : "#ffffff")};
+  border: 1px solid rgba(12, 20, 39, 0.05);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(12, 20, 39, 0.1);
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
 `;
 const options = [
   { value: "chocolate", label: "January" },
@@ -56,24 +59,18 @@ const options = [
 ];
 
 const SelectForm = () => {
+
   return (
     <SelectWrapper>
       <SelectItem>
-        <option value="" hidden size="7">
+        <StyledOption value="" hidden size="7">
           January, 2021
-        </option>
-        <option value="1">January</option>
-        <option value="2">February</option>
-        <option value="3">March</option>
-        <option value="4">April</option>
-        <option value="5">May</option>
-        <option value="6">June</option>
-        <option value="7">July</option>
-        <option value="8">August </option>
-        <option value="9">September </option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
+        </StyledOption>
+        {options.map((option, index) => (
+          <option key={index} value={index + 1}>
+            {option.label}
+          </option>
+        ))}
       </SelectItem>
     </SelectWrapper>
   );

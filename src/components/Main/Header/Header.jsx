@@ -16,51 +16,66 @@ const ButtonArrow = styled.button`
     border: 0;
     outline: none;
   }
+  @media${(props) => props.theme.media.tablet} {
+    display: none;
+  }
+`;
+const ButtonRegInnner = styled(ButtonReg)`
+  @media${(props) => props.theme.media.tablet} {
+    display: none;
+  }
 `;
 const HeaderWrapper = styled.div`
   display: flex;
-  width: 100%;  
-  flex-wrap:wrap;
+  width: 100%;
+  flex-wrap: wrap;
 `;
 const HeaderItem = styled.div`
-display: flex;
-width: 100%; 
-flex:0 0 100%;
-height:min-content;
-justify-content: space-between;
-margin-bottom: 26px;
+  display: flex;
+  width: 100%;
+  flex: 0 0 100%;
+  height: min-content;
+  justify-content: space-between;
+  margin-bottom: 26px;
 
-&h1{
+  &h1 {
     font-family: Inter;
-font-style: normal;
-font-weight: bold;
-font-size: 40px;
-line-height: 48px;
-display: flex;
-align-items: center;
-color: #0C1427;
-}
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    color: #0c1427;
+  }
+  @media${(props) => props.theme.media.tablet} {
+    flex-wrap: wrap;
+  }
+`;
+const ColorText = styled.span`
+  color: #088475;
+  @media${(props) => props.theme.media.tablet} {
+    flex: 0 0 100%;
+    margin-bottom: 15px;
 
-
-`
-const ColorText =styled.span`
-color:#088475;
-`
+    display: inline-block;
+  }
+`;
 
 const Header = (props) => {
   return (
     <HeaderWrapper>
-        <HeaderItem>
+      <HeaderItem>
         <ButtonArrow />
-      <ButtonReg>Sign out</ButtonReg>
-        </HeaderItem>
-
-        <HeaderItem>
-            <h1>All Shifts for <ColorText>January 2021 </ColorText> </h1>
-            <SelectForm/>
-        </HeaderItem>
+        <ButtonRegInnner>Sign out</ButtonRegInnner>
+      </HeaderItem>
+      <HeaderItem>
+        <h1>
+          All Shifts for <ColorText>January 2021 </ColorText>{" "}
+        </h1>
+        <SelectForm />
+      </HeaderItem>
     </HeaderWrapper>
-
   );
 };
 
