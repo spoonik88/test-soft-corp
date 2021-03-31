@@ -1,8 +1,7 @@
 import React from "react";
-import ImgArrow from "../../../images/arrow.svg";
+import ImgArrow from "../../images/arrow.svg";
 import styled from "styled-components";
-import ButtonReg from "../../Styled/ButtonReg";
-import SelectForm from "../SelectForm/SelectForm";
+import ButtonReg from "../Styled/ButtonReg";
 
 const ButtonArrow = styled.button`
   width: 12px;
@@ -30,7 +29,7 @@ const HeaderWrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
 `;
-const HeaderItem = styled.div`
+export const HeaderItem = styled.div`
   display: flex;
   width: 100%;
   flex: 0 0 100%;
@@ -53,15 +52,6 @@ const HeaderItem = styled.div`
     margin-top: -10px;
   }
 `;
-const ColorText = styled.span`
-  color: #088475;
-  @media${(props) => props.theme.media.tablet} {
-    flex: 0 0 100%;
-    margin-bottom: 15px;
-
-    display: inline-block;
-  }
-`;
 
 const Header = (props) => {
   return (
@@ -69,12 +59,6 @@ const Header = (props) => {
       <HeaderItem>
         <ButtonArrow />
         <ButtonRegInner>Sign out</ButtonRegInner>
-      </HeaderItem>
-      <HeaderItem>
-        <h1>
-          All Shifts for <ColorText>January 2021 </ColorText>{" "}
-        </h1>
-        <SelectForm />
       </HeaderItem>
     </HeaderWrapper>
   );

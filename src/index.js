@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import App from "./App";
 
 const Global = createGlobalStyle`
@@ -31,7 +31,7 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
       <Global />
       <App />
-    </ThemeProvider>
+    </ThemeProvider>{" "}
   </BrowserRouter>,
   document.getElementById("root")
 );

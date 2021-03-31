@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Administration = props => {//TODO In production
+const PageRoutes = props => {
     return (
         <div>
             {props.title} is not available yet.
@@ -11,6 +11,5 @@ const Administration = props => {//TODO In production
 
 
 
-export default Administration;
+export default PageRoutes;
 
-//TODO 404 not found 

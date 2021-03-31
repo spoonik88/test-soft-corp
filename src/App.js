@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import Main from "./components/Main/Main";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
 import BurgerMenu from "./components/Styled/BurgerMenu";
-import ActionTracking from "./routes/ActionTracking";
-import Administration from "./routes/Administration";
-import Operations from "./routes/Operations";
-import People from "./routes/People";
-import SchedulePlanning from "./routes/SchedulePlanning";
+import PageRoutes from "./routes/PageRoutes";
 
 const AppWrapper = styled.div`
   max-width: 1440px;
@@ -32,29 +29,43 @@ const MainWrapper = styled.div`
   }
 `;
 
-
-
 const App = () => {
-  const [isActive, setActive] = useState(null);
+  const [isActive, setActive] = useState(false);
 
-  const handleMenu = () => {             
-    setActive(prevState => !prevState)                       
-  }
-  const match = useRouteMatch("/");
+  const handleMenu = () => {
+    setActive((prevState) => !prevState);
+  };
 
   return (
     <AppWrapper>
-      <BurgerMenu isActive={isActive} onMenuClick={handleMenu} />      
+      <BurgerMenu isActive={isActive} onMenuClick={handleMenu} />
       <NavBar isActive={isActive} onMenuClick={handleMenu} />
       <MainWrapper>
+        <Header />
         <Switch>
           <Route path="/" exact render={() => <Redirect to="/main" />} />
-          <Route path="/main" component={Main} />
-          <Route path="/people" component={People} />{/*TODO return InProgress Component*/}
-          <Route path="/operations" component={() => <Operations title={"Operations"}/>} />
-          <Route path="/schedule-planning" component={SchedulePlanning} />
-          <Route path="/administration" component={Administration} />
-          <Route path="/action-tracking" component={ActionTracking} />
+          <Route path="/main" component={Dashboard} />
+          <Route
+            path="/people"
+            component={() => <PageRoutes title={"People"} />}
+          />
+
+          <Route
+            path="/operations"
+            component={() => <PageRoutes title={"Operations"} />}
+          />
+          <Route
+            path="/schedule-planning"
+            component={() => <PageRoutes title={"SchedulePlanning"} />}
+          />
+          <Route
+            path="/administration"
+            component={() => <PageRoutes title={"Administration"} />}
+          />
+          <Route
+            path="/action-tracking"
+            component={() => <PageRoutes title={"ActionTracking"} />}
+          />
           <Route
             render={() => (
               <div>

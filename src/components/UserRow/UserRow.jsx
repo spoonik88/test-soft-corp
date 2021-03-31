@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ImgPeople from "../../../../images/User.svg";
-import ImgClocke from "../../../../images/fi_clock.svg";
-import { getTitleList } from "../../../../utils/mockUserList";
+import ImgPeople from "../../images/User.svg";
+import ImgClocke from "../../images/fi_clock.svg";
+import { getTitleList } from "../../utils/mockUserList";
 
 const TableBody = styled.div`
   font-style: normal;
@@ -62,35 +62,34 @@ const TableBody = styled.div`
     flex: 0 0 10%;
   }
   @media${(props) => props.theme.media.tablet} {
-    
     &:nth-child(1) {
       flex: 0 0 15%;
-      order:1;
+      order: 1;
     }
     &:nth-child(2) {
       flex: 0 0 15%;
-      order:5;
+      order: 5;
     }
     &:nth-child(3) {
       flex: 0 0 15%;
-      order:2;
+      order: 2;
     }
     &:nth-child(4) {
       flex: 0 0 15%;
-      order:6;
+      order: 6;
     }
     &:nth-child(5) {
       flex: 0 0 15%;
-      order:1;
-      display:none;
+      order: 1;
+      display: none;
     }
     &:nth-child(6) {
       flex: 0 0 15%;
-      order:3;
+      order: 3;
     }
     &:nth-child(7) {
       flex: 0 0 10%;
-      order:4;
+      order: 4;
     }
   }
 `;
@@ -119,7 +118,6 @@ const TableBodyStyle = styled.div`
     justify-content: space-between;
     height: 100%;
     padding: 0 16px 0 0;
-    
   }
 `;
 const TableHead = styled.div`
@@ -152,37 +150,37 @@ const TableHead = styled.div`
   &:nth-child(7) {
     flex: 0 0 10%;
   }
-  @media${(props) => props.theme.media.tablet}{
+  @media${(props) => props.theme.media.tablet} {
     align-items: center;
     display: flex;
     &:nth-child(1) {
       flex: 0 0 15%;
-      order:1;
+      order: 1;
     }
     &:nth-child(2) {
       flex: 0 0 15%;
-      order:5;
+      order: 5;
     }
     &:nth-child(3) {
       flex: 0 0 15%;
-      order:2;
+      order: 2;
     }
     &:nth-child(4) {
       flex: 0 0 15%;
-      order:6;
+      order: 6;
     }
     &:nth-child(5) {
       flex: 0 0 15%;
-      order:1;
-      display:none;
+      order: 1;
+      display: none;
     }
     &:nth-child(6) {
       flex: 0 0 15%;
-      order:3;
+      order: 3;
     }
     &:nth-child(7) {
       flex: 0 0 10%;
-      order:4;
+      order: 4;
     }
   }
 `;
@@ -195,6 +193,9 @@ const TableRow = styled.div`
   padding: 0 20px;
   box-sizing: border-box;
   margin-bottom: 8px;
+  :nth-child(1) {
+    display: none;
+  }
   @media${(props) => props.theme.media.tablet} {
     flex-direction: column;
     flex: 0 0 35%;
@@ -202,6 +203,9 @@ const TableRow = styled.div`
     padding: 0 0px 0 16px;
     box-sizing: border-box;
     margin: 0;
+    :nth-child(1) {
+      display: flex;
+    }
   }
 `;
 
@@ -213,22 +217,21 @@ const TableInner = styled.div`
     box-sizing: border-box;
     box-shadow: 0px 2px 2px rgba(12, 20, 39, 0.1);
     border-radius: 20px;
-    margin-bottom:16px;
-    display:flex;
-    height:212px;
+    margin-bottom: 16px;
+    display: flex;
+    height: 212px;
     padding: 16px 0 20px 0;
   }
 `;
 
-
-const ListUser = ({ user }) => {
+const UserRow = ({ user, index }) => {
   let title = getTitleList(1);
 
   return !user ? null : (
     <TableInner>
-      <TableRow>
-        {title.map(({ title }, index) => (
-          <TableHead key={index}>{title}</TableHead>
+      <TableRow style={index === 0 ? { display: "flex" } : {}}>
+        {title.map(({ title }, i) => (
+          <TableHead key={i + title}>{title}</TableHead>
         ))}
       </TableRow>
       <TableBodyStyle>
@@ -243,4 +246,4 @@ const ListUser = ({ user }) => {
   );
 };
 
-export default ListUser;
+export default UserRow;

@@ -89,7 +89,7 @@ const IconImg = styled.img`
   top: calc(50% - 10px);
 `;
 
-const Menu = () => {
+const Menu = ({ onMenuClick }) => {
   return (
     <MenuWrapper>
       <div>
@@ -99,6 +99,7 @@ const Menu = () => {
               background: "#ffffff",
               borderRadius: "8px",
             }}
+            onClick={onMenuClick}
             to={to}
             key={index}
           >

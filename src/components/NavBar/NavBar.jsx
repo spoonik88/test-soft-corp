@@ -35,13 +35,13 @@ const ButtonRegStyle = styled(ButtonReg)`
     top: 38px;
   }
 `;
-const NavBar = ({ isActive }) => {
+const NavBar = ({ isActive, onMenuClick }) => {
   const MyNavBarWrapper = isActive ? ActiveNavBarWrapper : NavBarWrapper;
 
   return (
     <MyNavBarWrapper>
       <ButtonRegStyle>Sign out</ButtonRegStyle>
-      <Menu />
+      <Menu onMenuClick={onMenuClick} />
       <Avatar />
     </MyNavBarWrapper>
   );

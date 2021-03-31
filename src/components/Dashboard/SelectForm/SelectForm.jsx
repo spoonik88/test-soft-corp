@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
-import Select from "react-select";
 
 const SelectWrapper = styled.div`
   height: 44px;
@@ -44,22 +43,21 @@ const StyledOption = styled.option`
   line-height: 17px;
 `;
 const options = [
-  { value: "chocolate", label: "January" },
-  { value: "strawberry", label: "February" },
-  { value: "vanilla", label: "March" },
-  { value: "chocolate", label: "April" },
-  { value: "strawberry", label: "May" },
-  { value: "vanilla", label: "June" },
-  { value: "chocolate", label: "July" },
-  { value: "strawberry", label: "August" },
-  { value: "vanilla", label: "September" },
-  { value: "chocolate", label: "October" },
-  { value: "strawberry", label: "November" },
-  { value: "vanilla", label: "December" },
+  { value: "January", label: "January" },
+  { value: "February", label: "February" },
+  { value: "March", label: "March" },
+  { value: "April", label: "April" },
+  { value: "May", label: "May" },
+  { value: "June", label: "June" },
+  { value: "July", label: "July" },
+  { value: "August", label: "August" },
+  { value: "September", label: "September" },
+  { value: "October", label: "October" },
+  { value: "November", label: "November" },
+  { value: "December", label: "December" },
 ];
 
 const SelectForm = () => {
-
   return (
     <SelectWrapper>
       <SelectItem>

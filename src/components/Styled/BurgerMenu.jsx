@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const BurgerMenuStyle = styled.div`
@@ -36,6 +36,7 @@ const MenuButton = styled.div`
     display: block;
     top: 50%;
     transform: translate(0, -50%);
+    cursor: pointer;
   }
 
   span::before {
@@ -52,53 +53,37 @@ const MenuButton = styled.div`
     background: #088475;
   }
 `;
-const LineMenuStyle = styled.span`
-
-`
 
 const ActiveButton = styled(MenuButton)`
-  &>span {
+  & > span {
     background: transparent;
+    cursor: pointer;
   }
 
-  >span::before {
+  > span::before {
     transform: rotate(-225deg);
     top: 0px;
   }
 
-  >span::after {
+  > span::after {
     transform: rotate(225deg);
     top: 0px;
   }
-  :hover > span{
-    background: transparent;;
+  :hover > span {
+    background: transparent;
   }
 `;
 
-
-
-
-
-
-
-
-const BurgerMenu = ({isActive, onMenuClick}) => {
-
-/* const [isActive,setActive] = useState(false);*/
- 
+const BurgerMenu = ({ isActive, onMenuClick }) => {
   const handleClick = () => {
     onMenuClick && onMenuClick(isActive);
-    // setActive(!isActive)
-   
-    
   };
 
   const MyButton = isActive ? ActiveButton : MenuButton;
 
-
   return (
     <BurgerMenuStyle>
-      <MyButton  onClick={handleClick}>
+      <MyButton onClick={handleClick}>
         <span></span>
       </MyButton>
     </BurgerMenuStyle>
