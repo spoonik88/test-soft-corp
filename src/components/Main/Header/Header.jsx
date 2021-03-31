@@ -20,7 +20,7 @@ const ButtonArrow = styled.button`
     display: none;
   }
 `;
-const ButtonRegInnner = styled(ButtonReg)`
+const ButtonRegInner = styled(ButtonReg)`
   @media${(props) => props.theme.media.tablet} {
     display: none;
   }
@@ -50,6 +50,7 @@ const HeaderItem = styled.div`
   }
   @media${(props) => props.theme.media.tablet} {
     flex-wrap: wrap;
+    margin-top: -10px;
   }
 `;
 const ColorText = styled.span`
@@ -67,7 +68,7 @@ const Header = (props) => {
     <HeaderWrapper>
       <HeaderItem>
         <ButtonArrow />
-        <ButtonRegInnner>Sign out</ButtonRegInnner>
+        <ButtonRegInner>Sign out</ButtonRegInner>
       </HeaderItem>
       <HeaderItem>
         <h1>

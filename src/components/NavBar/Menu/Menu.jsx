@@ -75,6 +75,11 @@ const MenuWrapper = styled.nav`
     color: #0c1427;
     position: reletive;
   }
+  @media${(props) => props.theme.media.tablet} {
+    justify-content: flex-start;
+    margin-top: 117px;
+    margin-left: 33px;
+  }
 `;
 const IconImg = styled.img`
   position: absolute;

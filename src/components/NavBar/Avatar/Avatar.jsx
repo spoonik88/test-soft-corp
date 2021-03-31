@@ -10,6 +10,12 @@ const AvatarWrapper = styled.div`
   width: 134px;
   height: 50px;
   margin: 0 0 42px 35px;
+  @media${(props) => props.theme.media.tablet}{
+    position: absolute;
+    top: 30px;
+    left: 28px;
+    margin:0;
+  }
 `;
 const AvatarItemImg = styled.img`
   width: 50px;

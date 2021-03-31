@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ButtonReg from "../Styled/ButtonReg";
 import Avatar from "./Avatar/Avatar";
 import Menu from "./Menu/Menu";
 
@@ -14,13 +15,35 @@ const NavBarWrapper = styled.div`
     display: none;
   }
 `;
+const ActiveNavBarWrapper = styled(NavBarWrapper)`
+  @media${(props) => props.theme.media.tablet} {
+    position: fixed;
+    display: flex;
+    top: 56px;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+    background: #ffffff;
+  }
+`;
+const ButtonRegStyle = styled(ButtonReg)`
+  display: none;
+  @media${(props) => props.theme.media.tablet} {
+    display: inline;
+    position: absolute;
+    right: 27px;
+    top: 38px;
+  }
+`;
+const NavBar = ({ isActive }) => {
+  const MyNavBarWrapper = isActive ? ActiveNavBarWrapper : NavBarWrapper;
 
-const NavBar = () => {
   return (
-    <NavBarWrapper>
+    <MyNavBarWrapper>
+      <ButtonRegStyle>Sign out</ButtonRegStyle>
       <Menu />
       <Avatar />
-    </NavBarWrapper>
+    </MyNavBarWrapper>
   );
 };
 export default NavBar;

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 import Main from "./components/Main/Main";
 import NavBar from "./components/NavBar/NavBar";
+import BurgerMenu from "./components/Styled/BurgerMenu";
 import ActionTracking from "./routes/ActionTracking";
 import Administration from "./routes/Administration";
 import Operations from "./routes/Operations";
@@ -19,20 +20,32 @@ const AppWrapper = styled.div`
     flex-wrap: wrap;
   }
 `;
+
 const MainWrapper = styled.div`
   width: 100%;
   display: flex;
   padding: 42px 44px 0 42px;
   box-sizing: border-box;
   flex-wrap: wrap;
+  @media${(props) => props.theme.media.tablet} {
+    padding: 15px 15px 0 15px;
+  }
 `;
 
+
+
 const App = () => {
+  const [isActive, setActive] = useState(null);
+
+  const handleMenu = () => {             
+    setActive(prevState => !prevState)                       
+  }
   const match = useRouteMatch("/");
 
   return (
     <AppWrapper>
-      <NavBar />
+      <BurgerMenu isActive={isActive} onMenuClick={handleMenu} />      
+      <NavBar isActive={isActive} onMenuClick={handleMenu} />
       <MainWrapper>
         <Switch>
           <Route path="/" exact render={() => <Redirect to="/main" />} />
